@@ -1,0 +1,1390 @@
+<?xml version="1.0" encoding="UTF-8"?><TestSessionContainer xmlns="http://www.codecover.org/xml/testsession-container" Date="1488466101387" TestSessionContainerId="62dd34ea-8f58-4cb1-9993-98177e600ecc" version="1.0">
+<SrcFileList>
+<SrcFile Content="package calendario;&#13;&#10;&#13;&#10;public class Calendario {&#13;&#10;&#13;&#10;&#9;public static void main(String[] args) {&#13;&#10;&#9;&#9;// TODO Auto-generated method stub&#13;&#10;&#9;&#9;int giorno=29;&#13;&#10;&#9;&#9;String mese=&quot;febbraio&quot;;&#13;&#10;&#9;&#9;int anno=1583;&#13;&#10;&#9;&#9;System.out.println(calend(giorno,mese,anno));&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#13;&#10;&#9;public static String calend(int d, String ms, int a)&#13;&#10;&#9;{&#13;&#10;&#9;&#9;int m=0;&#13;&#10;&#9;&#9;if (ms==&quot;gennaio&quot;) &#13;&#10;&#9;&#9;&#9;m=1;&#13;&#10;&#9;&#9;else if (ms==&quot;febbraio&quot;) &#13;&#10;&#9;&#9;&#9;m=2;&#13;&#10;&#9;&#9;else if (ms==&quot;marzo&quot;) &#13;&#10;&#9;&#9;&#9;m=3;&#13;&#10;&#9;&#9;else if (ms==&quot;aprile&quot;)&#13;&#10;&#9;&#9;&#9;m=4;&#13;&#10;&#9;&#9;else if (ms==&quot;maggio&quot;)&#13;&#10;&#9;&#9;&#9;m=5;&#13;&#10;&#9;&#9;else if (ms==&quot;giugno&quot;)&#13;&#10;&#9;&#9;&#9;m=6;&#13;&#10;&#9;&#9;else if (ms==&quot;luglio&quot;)&#13;&#10;&#9;&#9;&#9;m=7;&#13;&#10;&#9;&#9;else if (ms==&quot;agosto&quot;)&#13;&#10;&#9;&#9;&#9;m=8;&#13;&#10;&#9;&#9;else if (ms==&quot;settembre&quot;)&#13;&#10;&#9;&#9;&#9;m=9;&#13;&#10;&#9;&#9;else if (ms==&quot;ottobre&quot;) &#13;&#10;&#9;&#9;&#9;m=10;&#13;&#10;&#9;&#9;else if (ms==&quot;novembre&quot;)&#13;&#10;&#9;&#9;&#9;m=11;&#13;&#10;&#9;&#9;else if (ms==&quot;dicembre&quot;)&#13;&#10;&#9;&#9;&#9;m=12; &#13;&#10;&#13;&#10;&#9;&#9;if (d&lt;1 || d&gt;31 || m==0 || a&lt;=1582)&#13;&#10;&#9;&#9;&#9;return &quot;Errore&quot;;&#13;&#10;&#9;&#9;Boolean bisestile= (a%4==0);&#13;&#10;&#9;&#9;if (bisestile &amp;&amp; a%100==0 &amp;&amp; a%400!=0)&#13;&#10;&#9;&#9;&#9;bisestile=false;&#13;&#10;&#9;&#9;if ((m==2 &amp;&amp; d&gt;29)||(m==2 &amp;&amp; d==29 &amp;&amp; !bisestile))&#13;&#10;&#9;&#9;&#9;return &quot;Errore&quot;;&#13;&#10;&#9;&#9;if ((m==4 || m==6 || m==9 || m==11) &amp;&amp; d&gt;30)&#13;&#10;&#9;&#9;&#9;return &quot;Errore&quot;;&#13;&#10;&#9;&#9;&#13;&#10;&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;if (m&lt;=2)&#13;&#10;&#9;&#9; {&#13;&#10;&#9;&#9;  m = m + 12;&#13;&#10;&#9;&#9;  a--;&#13;&#10;&#9;&#9; };&#13;&#10;&#9;&#9; int f1 = a / 4;&#13;&#10;&#9;&#9; int f2 = a / 100;&#13;&#10;&#9;&#9; int f3 = a / 400;&#13;&#10;&#9;&#9; int f4 = (int) (2 * m + (.6 * (m + 1)));&#13;&#10;&#9;&#9; int f5 = a + d + 1;&#13;&#10;&#9;&#9; int x = f1 - f2 + f3 + f4 + f5;&#13;&#10;&#9;&#9; int k = x / 7;&#13;&#10;&#9;&#9; int n = x - k * 7;&#13;&#10;&#9;&#9; &#13;&#10;&#9;&#9; if (n==1) &#13;&#10;&#9;&#9;&#9; return &quot;Lunedi&quot;;&#9;&#9; &#13;&#10;&#9;&#9; else if (n==2) &#13;&#10;&#9;&#9;&#9; return &quot;Martedi&quot;;&#13;&#10;&#9;&#9; else if (n==3) &#13;&#10;&#9;&#9;&#9; return &quot;Mercoledi&quot;;&#13;&#10;&#9;&#9; else if (n==4) &#13;&#10;&#9;&#9;&#9; return &quot;Giovedi&quot;;&#13;&#10;&#9;&#9; else if (n==5) &#13;&#10;&#9;&#9;&#9; return &quot;Venerdi&quot;;&#13;&#10;&#9;&#9; else if (n==6) &#13;&#10;&#9;&#9;&#9; return &quot;Sabato&quot;;&#13;&#10;&#9;&#9; else if (n==0) &#13;&#10;&#9;&#9;&#9; return &quot;Domenica&quot;;&#13;&#10;&#9;&#9; else &#13;&#10;&#9;&#9;&#9; return &quot;Errore&quot;;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#13;&#10;&#9;&#13;&#10;}" Filename="Calendario.java" Intrnl_Id="1"/>
+<SrcFile Content="/**&#13;&#10; * &#13;&#10; */&#13;&#10;package calendario;&#13;&#10;&#13;&#10;&#13;&#10;&#13;&#10;import org.junit.Assert;&#13;&#10;import org.junit.Test;&#13;&#10;&#13;&#10;/**&#13;&#10; * @author Porfirio&#13;&#10; *&#13;&#10; */&#13;&#10;public class TestWhiteBox {&#13;&#10;&#9;public Assert ass;&#13;&#10;&#9;&#13;&#10;&#9;&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testCalendWB1() {&#13;&#10;&#9;&#9;ass.assertEquals(Calendario.calend(29,&quot;gennaio&quot;,2011),&quot;Sabato&quot;);&#13;&#10;&#9;}&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testCalendWB2() {&#13;&#10;&#9;&#9;ass.assertEquals(Calendario.calend(29,&quot;marzo&quot;,2011),&quot;Martedi&quot;);&#13;&#10;&#9;}&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testCalendWB3() {&#13;&#10;&#9;&#9;ass.assertEquals(Calendario.calend(29,&quot;maggio&quot;,2011),&quot;Domenica&quot;);&#13;&#10;&#9;}&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testCalendWB4() {&#13;&#10;&#9;&#9;ass.assertEquals(Calendario.calend(29,&quot;luglio&quot;,2011),&quot;Venerdi&quot;);&#13;&#10;&#9;}&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testCalendWB5() {&#13;&#10;&#9;&#9;ass.assertEquals(Calendario.calend(29,&quot;agosto&quot;,2011),&quot;Lunedi&quot;);&#13;&#10;&#9;}&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testCalendWB6() {&#13;&#10;&#9;&#9;ass.assertEquals(Calendario.calend(29,&quot;ottobre&quot;,2011),&quot;Sabato&quot;);&#13;&#10;&#9;}&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testCalendWB7() {&#13;&#10;&#9;&#9;ass.assertEquals(Calendario.calend(29,&quot;dicembre&quot;,2011),&quot;Giovedi&quot;);&#13;&#10;&#9;}&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testCalendWB8() {&#13;&#10;&#9;&#9;ass.assertEquals(Calendario.calend(28,&quot;febbraio&quot;,2011),&quot;Lunedi&quot;);&#13;&#10;&#9;}&#13;&#10;&#9;@Test&#13;&#10;&#9;public void testCalendWB9() {&#13;&#10;&#9;&#9;ass.assertEquals(Calendario.calend(17,&quot;aprile&quot;,2011),&quot;Domenica&quot;);&#13;&#10;&#9;}&#13;&#10;&#13;&#10;}&#13;&#10;" Filename="TestWhiteBox.java" Intrnl_Id="2"/>
+</SrcFileList>
+<CritList>
+<CritListEntry Name="org.codecover.model.utils.criteria.LoopCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.ConditionCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.BranchCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.StatementCoverage" PluginName="org.codecover"/>
+</CritList>
+<BoolOpList>
+<BoolOp Arity="2" Intrnl_Id="3" Name="conditional and (&amp;&amp;)">
+<BoolAssgnmntBoolMapList>
+<MapEntry BoolAssgnmnt="02" Value="false"/>
+<MapEntry BoolAssgnmnt="10" Value="false"/>
+<MapEntry BoolAssgnmnt="11" Value="true"/>
+</BoolAssgnmntBoolMapList>
+</BoolOp>
+<BoolOp Arity="2" Intrnl_Id="4" Name="conditional or (||)">
+<BoolAssgnmntBoolMapList>
+<MapEntry BoolAssgnmnt="00" Value="false"/>
+<MapEntry BoolAssgnmnt="01" Value="true"/>
+<MapEntry BoolAssgnmnt="12" Value="true"/>
+</BoolAssgnmntBoolMapList>
+</BoolOp>
+<BoolOp Arity="1" Intrnl_Id="5" Name="not (!)">
+<BoolAssgnmntBoolMapList>
+<MapEntry BoolAssgnmnt="1" Value="false"/>
+<MapEntry BoolAssgnmnt="0" Value="true"/>
+</BoolAssgnmntBoolMapList>
+</BoolOp>
+</BoolOpList>
+<HierarchyLvlTypeList>
+<HierarchyLvlType EnglishName="package" IntrnlName="package" Intrnl_Id="6"/>
+<HierarchyLvlType EnglishName="method" IntrnlName="method" Intrnl_Id="7"/>
+<HierarchyLvlType EnglishName="class" IntrnlName="class" Intrnl_Id="8"/>
+<HierarchyLvlType EnglishName="default package" IntrnlName="default package" Intrnl_Id="9"/>
+</HierarchyLvlTypeList>
+<MASTRoot>
+<HierarchyLvl HierarchyLvlId="15" HierarchyLvlTypeId="9" Intrnl_Id="10" Name="default package">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="14" HierarchyLvlTypeId="6" Intrnl_Id="11" Name="calendario">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="3" HierarchyLvlTypeId="8" Intrnl_Id="12" Name="Calendario">
+<Header>
+<Loc EndOffset="46" SrcFileId="1" StartOffset="23"/>
+</Header>
+<LocList>
+<Loc EndOffset="1690" SrcFileId="1" StartOffset="23"/>
+</LocList>
+<HierarchyLvl HierarchyLvlId="1" HierarchyLvlTypeId="7" Intrnl_Id="13" Name="main">
+<Header>
+<Loc EndOffset="91" SrcFileId="1" StartOffset="53"/>
+</Header>
+<LocList>
+<Loc EndOffset="255" SrcFileId="1" StartOffset="53"/>
+</LocList>
+<StmntSeq Intrnl_Id="14">
+<LocList>
+<Loc EndOffset="149" SrcFileId="1" StartOffset="135"/>
+<Loc EndOffset="176" SrcFileId="1" StartOffset="153"/>
+<Loc EndOffset="194" SrcFileId="1" StartOffset="180"/>
+<Loc EndOffset="243" SrcFileId="1" StartOffset="198"/>
+</LocList>
+<BasicStmnt CovItemId="S1" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="15">
+<LocList>
+<Loc EndOffset="149" SrcFileId="1" StartOffset="135"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S2" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="16">
+<LocList>
+<Loc EndOffset="176" SrcFileId="1" StartOffset="153"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S3" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="17">
+<LocList>
+<Loc EndOffset="194" SrcFileId="1" StartOffset="180"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S4" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="18">
+<LocList>
+<Loc EndOffset="243" SrcFileId="1" StartOffset="198"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="2" HierarchyLvlTypeId="7" Intrnl_Id="19" Name="calend">
+<Header>
+<Loc EndOffset="314" SrcFileId="1" StartOffset="262"/>
+</Header>
+<LocList>
+<Loc EndOffset="1679" SrcFileId="1" StartOffset="262"/>
+</LocList>
+<StmntSeq Intrnl_Id="20">
+<LocList>
+<Loc EndOffset="330" SrcFileId="1" StartOffset="322"/>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="334"/>
+<Loc EndOffset="825" SrcFileId="1" StartOffset="769"/>
+<Loc EndOffset="857" SrcFileId="1" StartOffset="829"/>
+<Loc EndOffset="920" SrcFileId="1" StartOffset="861"/>
+<Loc EndOffset="995" SrcFileId="1" StartOffset="924"/>
+<Loc EndOffset="1064" SrcFileId="1" StartOffset="999"/>
+<Loc EndOffset="1126" SrcFileId="1" StartOffset="1078"/>
+<Loc EndOffset="1127" SrcFileId="1" StartOffset="1126"/>
+<Loc EndOffset="1147" SrcFileId="1" StartOffset="1132"/>
+<Loc EndOffset="1169" SrcFileId="1" StartOffset="1152"/>
+<Loc EndOffset="1191" SrcFileId="1" StartOffset="1174"/>
+<Loc EndOffset="1236" SrcFileId="1" StartOffset="1196"/>
+<Loc EndOffset="1260" SrcFileId="1" StartOffset="1241"/>
+<Loc EndOffset="1296" SrcFileId="1" StartOffset="1265"/>
+<Loc EndOffset="1315" SrcFileId="1" StartOffset="1301"/>
+<Loc EndOffset="1338" SrcFileId="1" StartOffset="1320"/>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1348"/>
+</LocList>
+<BasicStmnt CovItemId="S5" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="21">
+<LocList>
+<Loc EndOffset="330" SrcFileId="1" StartOffset="322"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S6" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="22">
+<Branch CovItemId="B1" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="23">
+<Cond/>
+<LocList>
+<Loc EndOffset="362" SrcFileId="1" StartOffset="358"/>
+</LocList>
+<StmntSeq Intrnl_Id="24">
+<LocList>
+<Loc EndOffset="362" SrcFileId="1" StartOffset="358"/>
+</LocList>
+<BasicStmnt CovItemId="S7" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="25">
+<LocList>
+<Loc EndOffset="362" SrcFileId="1" StartOffset="358"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B2" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="26">
+<Cond>
+<Loc EndOffset="370" SrcFileId="1" StartOffset="366"/>
+</Cond>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="371"/>
+</LocList>
+<StmntSeq Intrnl_Id="27">
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="371"/>
+</LocList>
+<CondStmnt CovItemId="S8" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="28">
+<Branch CovItemId="B3" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="29">
+<Cond/>
+<LocList>
+<Loc EndOffset="400" SrcFileId="1" StartOffset="396"/>
+</LocList>
+<StmntSeq Intrnl_Id="30">
+<LocList>
+<Loc EndOffset="400" SrcFileId="1" StartOffset="396"/>
+</LocList>
+<BasicStmnt CovItemId="S9" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="31">
+<LocList>
+<Loc EndOffset="400" SrcFileId="1" StartOffset="396"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B4" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="32">
+<Cond>
+<Loc EndOffset="408" SrcFileId="1" StartOffset="404"/>
+</Cond>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="409"/>
+</LocList>
+<StmntSeq Intrnl_Id="33">
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="409"/>
+</LocList>
+<CondStmnt CovItemId="S10" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="34">
+<Branch CovItemId="B5" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="35">
+<Cond/>
+<LocList>
+<Loc EndOffset="435" SrcFileId="1" StartOffset="431"/>
+</LocList>
+<StmntSeq Intrnl_Id="36">
+<LocList>
+<Loc EndOffset="435" SrcFileId="1" StartOffset="431"/>
+</LocList>
+<BasicStmnt CovItemId="S11" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="37">
+<LocList>
+<Loc EndOffset="435" SrcFileId="1" StartOffset="431"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B6" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="38">
+<Cond>
+<Loc EndOffset="443" SrcFileId="1" StartOffset="439"/>
+</Cond>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="444"/>
+</LocList>
+<StmntSeq Intrnl_Id="39">
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="444"/>
+</LocList>
+<CondStmnt CovItemId="S12" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="40">
+<Branch CovItemId="B7" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="41">
+<Cond/>
+<LocList>
+<Loc EndOffset="470" SrcFileId="1" StartOffset="466"/>
+</LocList>
+<StmntSeq Intrnl_Id="42">
+<LocList>
+<Loc EndOffset="470" SrcFileId="1" StartOffset="466"/>
+</LocList>
+<BasicStmnt CovItemId="S13" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="43">
+<LocList>
+<Loc EndOffset="470" SrcFileId="1" StartOffset="466"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B8" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="44">
+<Cond>
+<Loc EndOffset="478" SrcFileId="1" StartOffset="474"/>
+</Cond>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="479"/>
+</LocList>
+<StmntSeq Intrnl_Id="45">
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="479"/>
+</LocList>
+<CondStmnt CovItemId="S14" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="46">
+<Branch CovItemId="B9" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="47">
+<Cond/>
+<LocList>
+<Loc EndOffset="505" SrcFileId="1" StartOffset="501"/>
+</LocList>
+<StmntSeq Intrnl_Id="48">
+<LocList>
+<Loc EndOffset="505" SrcFileId="1" StartOffset="501"/>
+</LocList>
+<BasicStmnt CovItemId="S15" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="49">
+<LocList>
+<Loc EndOffset="505" SrcFileId="1" StartOffset="501"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B10" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="50">
+<Cond>
+<Loc EndOffset="513" SrcFileId="1" StartOffset="509"/>
+</Cond>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="514"/>
+</LocList>
+<StmntSeq Intrnl_Id="51">
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="514"/>
+</LocList>
+<CondStmnt CovItemId="S16" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="52">
+<Branch CovItemId="B11" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="53">
+<Cond/>
+<LocList>
+<Loc EndOffset="540" SrcFileId="1" StartOffset="536"/>
+</LocList>
+<StmntSeq Intrnl_Id="54">
+<LocList>
+<Loc EndOffset="540" SrcFileId="1" StartOffset="536"/>
+</LocList>
+<BasicStmnt CovItemId="S17" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="55">
+<LocList>
+<Loc EndOffset="540" SrcFileId="1" StartOffset="536"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B12" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="56">
+<Cond>
+<Loc EndOffset="548" SrcFileId="1" StartOffset="544"/>
+</Cond>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="549"/>
+</LocList>
+<StmntSeq Intrnl_Id="57">
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="549"/>
+</LocList>
+<CondStmnt CovItemId="S18" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="58">
+<Branch CovItemId="B13" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="59">
+<Cond/>
+<LocList>
+<Loc EndOffset="575" SrcFileId="1" StartOffset="571"/>
+</LocList>
+<StmntSeq Intrnl_Id="60">
+<LocList>
+<Loc EndOffset="575" SrcFileId="1" StartOffset="571"/>
+</LocList>
+<BasicStmnt CovItemId="S19" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="61">
+<LocList>
+<Loc EndOffset="575" SrcFileId="1" StartOffset="571"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B14" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="62">
+<Cond>
+<Loc EndOffset="583" SrcFileId="1" StartOffset="579"/>
+</Cond>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="584"/>
+</LocList>
+<StmntSeq Intrnl_Id="63">
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="584"/>
+</LocList>
+<CondStmnt CovItemId="S20" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="64">
+<Branch CovItemId="B15" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="65">
+<Cond/>
+<LocList>
+<Loc EndOffset="610" SrcFileId="1" StartOffset="606"/>
+</LocList>
+<StmntSeq Intrnl_Id="66">
+<LocList>
+<Loc EndOffset="610" SrcFileId="1" StartOffset="606"/>
+</LocList>
+<BasicStmnt CovItemId="S21" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="67">
+<LocList>
+<Loc EndOffset="610" SrcFileId="1" StartOffset="606"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B16" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="68">
+<Cond>
+<Loc EndOffset="618" SrcFileId="1" StartOffset="614"/>
+</Cond>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="619"/>
+</LocList>
+<StmntSeq Intrnl_Id="69">
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="619"/>
+</LocList>
+<CondStmnt CovItemId="S22" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="70">
+<Branch CovItemId="B17" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="71">
+<Cond/>
+<LocList>
+<Loc EndOffset="648" SrcFileId="1" StartOffset="644"/>
+</LocList>
+<StmntSeq Intrnl_Id="72">
+<LocList>
+<Loc EndOffset="648" SrcFileId="1" StartOffset="644"/>
+</LocList>
+<BasicStmnt CovItemId="S23" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="73">
+<LocList>
+<Loc EndOffset="648" SrcFileId="1" StartOffset="644"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B18" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="74">
+<Cond>
+<Loc EndOffset="656" SrcFileId="1" StartOffset="652"/>
+</Cond>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="657"/>
+</LocList>
+<StmntSeq Intrnl_Id="75">
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="657"/>
+</LocList>
+<CondStmnt CovItemId="S24" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="76">
+<Branch CovItemId="B19" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="77">
+<Cond/>
+<LocList>
+<Loc EndOffset="686" SrcFileId="1" StartOffset="681"/>
+</LocList>
+<StmntSeq Intrnl_Id="78">
+<LocList>
+<Loc EndOffset="686" SrcFileId="1" StartOffset="681"/>
+</LocList>
+<BasicStmnt CovItemId="S25" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="79">
+<LocList>
+<Loc EndOffset="686" SrcFileId="1" StartOffset="681"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B20" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="80">
+<Cond>
+<Loc EndOffset="694" SrcFileId="1" StartOffset="690"/>
+</Cond>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="695"/>
+</LocList>
+<StmntSeq Intrnl_Id="81">
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="695"/>
+</LocList>
+<CondStmnt CovItemId="S26" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="82">
+<Branch CovItemId="B21" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="83">
+<Cond/>
+<LocList>
+<Loc EndOffset="724" SrcFileId="1" StartOffset="719"/>
+</LocList>
+<StmntSeq Intrnl_Id="84">
+<LocList>
+<Loc EndOffset="724" SrcFileId="1" StartOffset="719"/>
+</LocList>
+<BasicStmnt CovItemId="S27" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="85">
+<LocList>
+<Loc EndOffset="724" SrcFileId="1" StartOffset="719"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B22" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="86">
+<Cond>
+<Loc EndOffset="732" SrcFileId="1" StartOffset="728"/>
+</Cond>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="733"/>
+</LocList>
+<StmntSeq Intrnl_Id="87">
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="733"/>
+</LocList>
+<CondStmnt CovItemId="S28" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="88">
+<Branch CovItemId="B23" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="89">
+<Cond/>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="757"/>
+</LocList>
+<StmntSeq Intrnl_Id="90">
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="757"/>
+</LocList>
+<BasicStmnt CovItemId="S29" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="91">
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="757"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B24" CovItemPrefix="calendario.Calendario.java" Implct="true" Intrnl_Id="92">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="93">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="735" SrcFileId="1" StartOffset="733"/>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="733"/>
+</LocList>
+<RootTerm CovItemId="C12" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="94">
+<BasicBoolTerm Intrnl_Id="95">
+<LocList>
+<Loc EndOffset="751" SrcFileId="1" StartOffset="737"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="697" SrcFileId="1" StartOffset="695"/>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="695"/>
+</LocList>
+<RootTerm CovItemId="C11" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="96">
+<BasicBoolTerm Intrnl_Id="97">
+<LocList>
+<Loc EndOffset="713" SrcFileId="1" StartOffset="699"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="659" SrcFileId="1" StartOffset="657"/>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="657"/>
+</LocList>
+<RootTerm CovItemId="C10" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="98">
+<BasicBoolTerm Intrnl_Id="99">
+<LocList>
+<Loc EndOffset="674" SrcFileId="1" StartOffset="661"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="621" SrcFileId="1" StartOffset="619"/>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="619"/>
+</LocList>
+<RootTerm CovItemId="C9" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="100">
+<BasicBoolTerm Intrnl_Id="101">
+<LocList>
+<Loc EndOffset="638" SrcFileId="1" StartOffset="623"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="586" SrcFileId="1" StartOffset="584"/>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="584"/>
+</LocList>
+<RootTerm CovItemId="C8" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="102">
+<BasicBoolTerm Intrnl_Id="103">
+<LocList>
+<Loc EndOffset="600" SrcFileId="1" StartOffset="588"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="551" SrcFileId="1" StartOffset="549"/>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="549"/>
+</LocList>
+<RootTerm CovItemId="C7" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="104">
+<BasicBoolTerm Intrnl_Id="105">
+<LocList>
+<Loc EndOffset="565" SrcFileId="1" StartOffset="553"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="516" SrcFileId="1" StartOffset="514"/>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="514"/>
+</LocList>
+<RootTerm CovItemId="C6" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="106">
+<BasicBoolTerm Intrnl_Id="107">
+<LocList>
+<Loc EndOffset="530" SrcFileId="1" StartOffset="518"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="481" SrcFileId="1" StartOffset="479"/>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="479"/>
+</LocList>
+<RootTerm CovItemId="C5" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="108">
+<BasicBoolTerm Intrnl_Id="109">
+<LocList>
+<Loc EndOffset="495" SrcFileId="1" StartOffset="483"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="446" SrcFileId="1" StartOffset="444"/>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="444"/>
+</LocList>
+<RootTerm CovItemId="C4" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="110">
+<BasicBoolTerm Intrnl_Id="111">
+<LocList>
+<Loc EndOffset="460" SrcFileId="1" StartOffset="448"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="411" SrcFileId="1" StartOffset="409"/>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="409"/>
+</LocList>
+<RootTerm CovItemId="C3" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="112">
+<BasicBoolTerm Intrnl_Id="113">
+<LocList>
+<Loc EndOffset="424" SrcFileId="1" StartOffset="413"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="373" SrcFileId="1" StartOffset="371"/>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="371"/>
+</LocList>
+<RootTerm CovItemId="C2" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="114">
+<BasicBoolTerm Intrnl_Id="115">
+<LocList>
+<Loc EndOffset="389" SrcFileId="1" StartOffset="375"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="336" SrcFileId="1" StartOffset="334"/>
+<LocList>
+<Loc EndOffset="762" SrcFileId="1" StartOffset="334"/>
+</LocList>
+<RootTerm CovItemId="C1" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="116">
+<BasicBoolTerm Intrnl_Id="117">
+<LocList>
+<Loc EndOffset="351" SrcFileId="1" StartOffset="338"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<CondStmnt CovItemId="S30" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="118">
+<Branch CovItemId="B25" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="119">
+<Cond/>
+<LocList>
+<Loc EndOffset="825" SrcFileId="1" StartOffset="809"/>
+</LocList>
+<StmntSeq Intrnl_Id="120">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B26" CovItemPrefix="calendario.Calendario.java" Implct="true" Intrnl_Id="121">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="122">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="771" SrcFileId="1" StartOffset="769"/>
+<LocList>
+<Loc EndOffset="825" SrcFileId="1" StartOffset="769"/>
+</LocList>
+<RootTerm CovItemId="C13" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="123">
+<OpTerm BooleanOpId="4" Intrnl_Id="124">
+<OpTerm BooleanOpId="4" Intrnl_Id="125">
+<OpTerm BooleanOpId="4" Intrnl_Id="126">
+<BasicBoolTerm Intrnl_Id="127">
+<LocList>
+<Loc EndOffset="776" SrcFileId="1" StartOffset="773"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="128">
+<LocList>
+<Loc EndOffset="784" SrcFileId="1" StartOffset="780"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="779" SrcFileId="1" StartOffset="777"/>
+</LocList>
+</OpTerm>
+<BasicBoolTerm Intrnl_Id="129">
+<LocList>
+<Loc EndOffset="792" SrcFileId="1" StartOffset="788"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="787" SrcFileId="1" StartOffset="785"/>
+</LocList>
+</OpTerm>
+<BasicBoolTerm Intrnl_Id="130">
+<LocList>
+<Loc EndOffset="803" SrcFileId="1" StartOffset="796"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="795" SrcFileId="1" StartOffset="793"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S31" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="131">
+<LocList>
+<Loc EndOffset="857" SrcFileId="1" StartOffset="829"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S32" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="132">
+<Branch CovItemId="B27" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="133">
+<Cond/>
+<LocList>
+<Loc EndOffset="920" SrcFileId="1" StartOffset="904"/>
+</LocList>
+<StmntSeq Intrnl_Id="134">
+<LocList>
+<Loc EndOffset="920" SrcFileId="1" StartOffset="904"/>
+</LocList>
+<BasicStmnt CovItemId="S33" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="135">
+<LocList>
+<Loc EndOffset="920" SrcFileId="1" StartOffset="904"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B28" CovItemPrefix="calendario.Calendario.java" Implct="true" Intrnl_Id="136">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="137">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="863" SrcFileId="1" StartOffset="861"/>
+<LocList>
+<Loc EndOffset="920" SrcFileId="1" StartOffset="861"/>
+</LocList>
+<RootTerm CovItemId="C14" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="138">
+<OpTerm BooleanOpId="3" Intrnl_Id="139">
+<OpTerm BooleanOpId="3" Intrnl_Id="140">
+<BasicBoolTerm Intrnl_Id="141">
+<LocList>
+<Loc EndOffset="874" SrcFileId="1" StartOffset="865"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="142">
+<LocList>
+<Loc EndOffset="886" SrcFileId="1" StartOffset="878"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="877" SrcFileId="1" StartOffset="875"/>
+</LocList>
+</OpTerm>
+<BasicBoolTerm Intrnl_Id="143">
+<LocList>
+<Loc EndOffset="898" SrcFileId="1" StartOffset="890"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="889" SrcFileId="1" StartOffset="887"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<CondStmnt CovItemId="S34" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="144">
+<Branch CovItemId="B29" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="145">
+<Cond/>
+<LocList>
+<Loc EndOffset="995" SrcFileId="1" StartOffset="979"/>
+</LocList>
+<StmntSeq Intrnl_Id="146">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B30" CovItemPrefix="calendario.Calendario.java" Implct="true" Intrnl_Id="147">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="148">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="926" SrcFileId="1" StartOffset="924"/>
+<LocList>
+<Loc EndOffset="995" SrcFileId="1" StartOffset="924"/>
+</LocList>
+<RootTerm CovItemId="C15" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="149">
+<OpTerm BooleanOpId="4" Intrnl_Id="150">
+<OpTerm BooleanOpId="3" Intrnl_Id="151">
+<BasicBoolTerm Intrnl_Id="152">
+<LocList>
+<Loc EndOffset="933" SrcFileId="1" StartOffset="929"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="153">
+<LocList>
+<Loc EndOffset="941" SrcFileId="1" StartOffset="937"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="936" SrcFileId="1" StartOffset="934"/>
+</LocList>
+</OpTerm>
+<OpTerm BooleanOpId="3" Intrnl_Id="154">
+<OpTerm BooleanOpId="3" Intrnl_Id="155">
+<BasicBoolTerm Intrnl_Id="156">
+<LocList>
+<Loc EndOffset="949" SrcFileId="1" StartOffset="945"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="157">
+<LocList>
+<Loc EndOffset="958" SrcFileId="1" StartOffset="953"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="952" SrcFileId="1" StartOffset="950"/>
+</LocList>
+</OpTerm>
+<OpTerm BooleanOpId="5" Intrnl_Id="158">
+<BasicBoolTerm Intrnl_Id="159">
+<LocList>
+<Loc EndOffset="972" SrcFileId="1" StartOffset="963"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="963" SrcFileId="1" StartOffset="962"/>
+</LocList>
+</OpTerm>
+<LocList>
+<Loc EndOffset="961" SrcFileId="1" StartOffset="959"/>
+</LocList>
+</OpTerm>
+<LocList>
+<Loc EndOffset="944" SrcFileId="1" StartOffset="942"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<CondStmnt CovItemId="S35" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="160">
+<Branch CovItemId="B31" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="161">
+<Cond/>
+<LocList>
+<Loc EndOffset="1064" SrcFileId="1" StartOffset="1048"/>
+</LocList>
+<StmntSeq Intrnl_Id="162">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B32" CovItemPrefix="calendario.Calendario.java" Implct="true" Intrnl_Id="163">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="164">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1001" SrcFileId="1" StartOffset="999"/>
+<LocList>
+<Loc EndOffset="1064" SrcFileId="1" StartOffset="999"/>
+</LocList>
+<RootTerm CovItemId="C16" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="165">
+<OpTerm BooleanOpId="3" Intrnl_Id="166">
+<OpTerm BooleanOpId="4" Intrnl_Id="167">
+<OpTerm BooleanOpId="4" Intrnl_Id="168">
+<OpTerm BooleanOpId="4" Intrnl_Id="169">
+<BasicBoolTerm Intrnl_Id="170">
+<LocList>
+<Loc EndOffset="1008" SrcFileId="1" StartOffset="1004"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="171">
+<LocList>
+<Loc EndOffset="1016" SrcFileId="1" StartOffset="1012"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="1011" SrcFileId="1" StartOffset="1009"/>
+</LocList>
+</OpTerm>
+<BasicBoolTerm Intrnl_Id="172">
+<LocList>
+<Loc EndOffset="1024" SrcFileId="1" StartOffset="1020"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="1019" SrcFileId="1" StartOffset="1017"/>
+</LocList>
+</OpTerm>
+<BasicBoolTerm Intrnl_Id="173">
+<LocList>
+<Loc EndOffset="1033" SrcFileId="1" StartOffset="1028"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="1027" SrcFileId="1" StartOffset="1025"/>
+</LocList>
+</OpTerm>
+<BasicBoolTerm Intrnl_Id="174">
+<LocList>
+<Loc EndOffset="1042" SrcFileId="1" StartOffset="1038"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="1037" SrcFileId="1" StartOffset="1035"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<CondStmnt CovItemId="S36" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="175">
+<Branch CovItemId="B33" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="176">
+<Cond/>
+<LocList>
+<Loc EndOffset="1126" SrcFileId="1" StartOffset="1092"/>
+</LocList>
+<StmntSeq Intrnl_Id="177">
+<LocList>
+<Loc EndOffset="1110" SrcFileId="1" StartOffset="1099"/>
+<Loc EndOffset="1120" SrcFileId="1" StartOffset="1116"/>
+</LocList>
+<BasicStmnt CovItemId="S37" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="178">
+<LocList>
+<Loc EndOffset="1110" SrcFileId="1" StartOffset="1099"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S38" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="179">
+<LocList>
+<Loc EndOffset="1120" SrcFileId="1" StartOffset="1116"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B34" CovItemPrefix="calendario.Calendario.java" Implct="true" Intrnl_Id="180">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="181">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1080" SrcFileId="1" StartOffset="1078"/>
+<LocList>
+<Loc EndOffset="1126" SrcFileId="1" StartOffset="1078"/>
+</LocList>
+<RootTerm CovItemId="C17" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="182">
+<BasicBoolTerm Intrnl_Id="183">
+<LocList>
+<Loc EndOffset="1086" SrcFileId="1" StartOffset="1082"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S39" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="184">
+<LocList>
+<Loc EndOffset="1127" SrcFileId="1" StartOffset="1126"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S40" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="185">
+<LocList>
+<Loc EndOffset="1147" SrcFileId="1" StartOffset="1132"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S41" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="186">
+<LocList>
+<Loc EndOffset="1169" SrcFileId="1" StartOffset="1152"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S42" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="187">
+<LocList>
+<Loc EndOffset="1191" SrcFileId="1" StartOffset="1174"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S43" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="188">
+<LocList>
+<Loc EndOffset="1236" SrcFileId="1" StartOffset="1196"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S44" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="189">
+<LocList>
+<Loc EndOffset="1260" SrcFileId="1" StartOffset="1241"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S45" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="190">
+<LocList>
+<Loc EndOffset="1296" SrcFileId="1" StartOffset="1265"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S46" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="191">
+<LocList>
+<Loc EndOffset="1315" SrcFileId="1" StartOffset="1301"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S47" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="192">
+<LocList>
+<Loc EndOffset="1338" SrcFileId="1" StartOffset="1320"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S48" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="193">
+<Branch CovItemId="B35" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="194">
+<Cond/>
+<LocList>
+<Loc EndOffset="1380" SrcFileId="1" StartOffset="1364"/>
+</LocList>
+<StmntSeq Intrnl_Id="195">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B36" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="196">
+<Cond>
+<Loc EndOffset="1392" SrcFileId="1" StartOffset="1388"/>
+</Cond>
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1393"/>
+</LocList>
+<StmntSeq Intrnl_Id="197">
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1393"/>
+</LocList>
+<CondStmnt CovItemId="S49" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="198">
+<Branch CovItemId="B37" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="199">
+<Cond/>
+<LocList>
+<Loc EndOffset="1426" SrcFileId="1" StartOffset="1409"/>
+</LocList>
+<StmntSeq Intrnl_Id="200">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B38" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="201">
+<Cond>
+<Loc EndOffset="1435" SrcFileId="1" StartOffset="1431"/>
+</Cond>
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1436"/>
+</LocList>
+<StmntSeq Intrnl_Id="202">
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1436"/>
+</LocList>
+<CondStmnt CovItemId="S50" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="203">
+<Branch CovItemId="B39" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="204">
+<Cond/>
+<LocList>
+<Loc EndOffset="1471" SrcFileId="1" StartOffset="1452"/>
+</LocList>
+<StmntSeq Intrnl_Id="205">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B40" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="206">
+<Cond>
+<Loc EndOffset="1480" SrcFileId="1" StartOffset="1476"/>
+</Cond>
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1481"/>
+</LocList>
+<StmntSeq Intrnl_Id="207">
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1481"/>
+</LocList>
+<CondStmnt CovItemId="S51" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="208">
+<Branch CovItemId="B41" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="209">
+<Cond/>
+<LocList>
+<Loc EndOffset="1514" SrcFileId="1" StartOffset="1497"/>
+</LocList>
+<StmntSeq Intrnl_Id="210">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B42" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="211">
+<Cond>
+<Loc EndOffset="1523" SrcFileId="1" StartOffset="1519"/>
+</Cond>
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1524"/>
+</LocList>
+<StmntSeq Intrnl_Id="212">
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1524"/>
+</LocList>
+<CondStmnt CovItemId="S52" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="213">
+<Branch CovItemId="B43" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="214">
+<Cond/>
+<LocList>
+<Loc EndOffset="1557" SrcFileId="1" StartOffset="1540"/>
+</LocList>
+<StmntSeq Intrnl_Id="215">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B44" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="216">
+<Cond>
+<Loc EndOffset="1566" SrcFileId="1" StartOffset="1562"/>
+</Cond>
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1567"/>
+</LocList>
+<StmntSeq Intrnl_Id="217">
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1567"/>
+</LocList>
+<CondStmnt CovItemId="S53" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="218">
+<Branch CovItemId="B45" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="219">
+<Cond/>
+<LocList>
+<Loc EndOffset="1599" SrcFileId="1" StartOffset="1583"/>
+</LocList>
+<StmntSeq Intrnl_Id="220">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B46" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="221">
+<Cond>
+<Loc EndOffset="1608" SrcFileId="1" StartOffset="1604"/>
+</Cond>
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1609"/>
+</LocList>
+<StmntSeq Intrnl_Id="222">
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1609"/>
+</LocList>
+<CondStmnt CovItemId="S54" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="223">
+<Branch CovItemId="B47" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="224">
+<Cond/>
+<LocList>
+<Loc EndOffset="1643" SrcFileId="1" StartOffset="1625"/>
+</LocList>
+<StmntSeq Intrnl_Id="225">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B48" CovItemPrefix="calendario.Calendario.java" Implct="false" Intrnl_Id="226">
+<Cond>
+<Loc EndOffset="1652" SrcFileId="1" StartOffset="1648"/>
+</Cond>
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1659"/>
+</LocList>
+<StmntSeq Intrnl_Id="227">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1611" SrcFileId="1" StartOffset="1609"/>
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1609"/>
+</LocList>
+<RootTerm CovItemId="C24" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="228">
+<BasicBoolTerm Intrnl_Id="229">
+<LocList>
+<Loc EndOffset="1617" SrcFileId="1" StartOffset="1613"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1569" SrcFileId="1" StartOffset="1567"/>
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1567"/>
+</LocList>
+<RootTerm CovItemId="C23" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="230">
+<BasicBoolTerm Intrnl_Id="231">
+<LocList>
+<Loc EndOffset="1575" SrcFileId="1" StartOffset="1571"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1526" SrcFileId="1" StartOffset="1524"/>
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1524"/>
+</LocList>
+<RootTerm CovItemId="C22" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="232">
+<BasicBoolTerm Intrnl_Id="233">
+<LocList>
+<Loc EndOffset="1532" SrcFileId="1" StartOffset="1528"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1483" SrcFileId="1" StartOffset="1481"/>
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1481"/>
+</LocList>
+<RootTerm CovItemId="C21" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="234">
+<BasicBoolTerm Intrnl_Id="235">
+<LocList>
+<Loc EndOffset="1489" SrcFileId="1" StartOffset="1485"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1438" SrcFileId="1" StartOffset="1436"/>
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1436"/>
+</LocList>
+<RootTerm CovItemId="C20" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="236">
+<BasicBoolTerm Intrnl_Id="237">
+<LocList>
+<Loc EndOffset="1444" SrcFileId="1" StartOffset="1440"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1395" SrcFileId="1" StartOffset="1393"/>
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1393"/>
+</LocList>
+<RootTerm CovItemId="C19" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="238">
+<BasicBoolTerm Intrnl_Id="239">
+<LocList>
+<Loc EndOffset="1401" SrcFileId="1" StartOffset="1397"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1350" SrcFileId="1" StartOffset="1348"/>
+<LocList>
+<Loc EndOffset="1675" SrcFileId="1" StartOffset="1348"/>
+</LocList>
+<RootTerm CovItemId="C18" CovItemPrefix="calendario.Calendario.java" Intrnl_Id="240">
+<BasicBoolTerm Intrnl_Id="241">
+<LocList>
+<Loc EndOffset="1356" SrcFileId="1" StartOffset="1352"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</HierarchyLvl>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="13" HierarchyLvlTypeId="8" Intrnl_Id="242" Name="TestWhiteBox">
+<Header>
+<Loc EndOffset="154" SrcFileId="2" StartOffset="129"/>
+</Header>
+<LocList>
+<Loc EndOffset="1199" SrcFileId="2" StartOffset="129"/>
+</LocList>
+<HierarchyLvl HierarchyLvlId="4" HierarchyLvlTypeId="7" Intrnl_Id="243" Name="testCalendWB1">
+<Header>
+<Loc EndOffset="221" SrcFileId="2" StartOffset="186"/>
+</Header>
+<LocList>
+<Loc EndOffset="295" SrcFileId="2" StartOffset="186"/>
+</LocList>
+<StmntSeq Intrnl_Id="244">
+<LocList>
+<Loc EndOffset="291" SrcFileId="2" StartOffset="227"/>
+</LocList>
+<BasicStmnt CovItemId="S1" CovItemPrefix="calendario.TestWhiteBox.java" Intrnl_Id="245">
+<LocList>
+<Loc EndOffset="291" SrcFileId="2" StartOffset="227"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="5" HierarchyLvlTypeId="7" Intrnl_Id="246" Name="testCalendWB2">
+<Header>
+<Loc EndOffset="333" SrcFileId="2" StartOffset="298"/>
+</Header>
+<LocList>
+<Loc EndOffset="406" SrcFileId="2" StartOffset="298"/>
+</LocList>
+<StmntSeq Intrnl_Id="247">
+<LocList>
+<Loc EndOffset="402" SrcFileId="2" StartOffset="339"/>
+</LocList>
+<BasicStmnt CovItemId="S2" CovItemPrefix="calendario.TestWhiteBox.java" Intrnl_Id="248">
+<LocList>
+<Loc EndOffset="402" SrcFileId="2" StartOffset="339"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="6" HierarchyLvlTypeId="7" Intrnl_Id="249" Name="testCalendWB3">
+<Header>
+<Loc EndOffset="444" SrcFileId="2" StartOffset="409"/>
+</Header>
+<LocList>
+<Loc EndOffset="519" SrcFileId="2" StartOffset="409"/>
+</LocList>
+<StmntSeq Intrnl_Id="250">
+<LocList>
+<Loc EndOffset="515" SrcFileId="2" StartOffset="450"/>
+</LocList>
+<BasicStmnt CovItemId="S3" CovItemPrefix="calendario.TestWhiteBox.java" Intrnl_Id="251">
+<LocList>
+<Loc EndOffset="515" SrcFileId="2" StartOffset="450"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="7" HierarchyLvlTypeId="7" Intrnl_Id="252" Name="testCalendWB4">
+<Header>
+<Loc EndOffset="557" SrcFileId="2" StartOffset="522"/>
+</Header>
+<LocList>
+<Loc EndOffset="631" SrcFileId="2" StartOffset="522"/>
+</LocList>
+<StmntSeq Intrnl_Id="253">
+<LocList>
+<Loc EndOffset="627" SrcFileId="2" StartOffset="563"/>
+</LocList>
+<BasicStmnt CovItemId="S4" CovItemPrefix="calendario.TestWhiteBox.java" Intrnl_Id="254">
+<LocList>
+<Loc EndOffset="627" SrcFileId="2" StartOffset="563"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="8" HierarchyLvlTypeId="7" Intrnl_Id="255" Name="testCalendWB5">
+<Header>
+<Loc EndOffset="669" SrcFileId="2" StartOffset="634"/>
+</Header>
+<LocList>
+<Loc EndOffset="742" SrcFileId="2" StartOffset="634"/>
+</LocList>
+<StmntSeq Intrnl_Id="256">
+<LocList>
+<Loc EndOffset="738" SrcFileId="2" StartOffset="675"/>
+</LocList>
+<BasicStmnt CovItemId="S5" CovItemPrefix="calendario.TestWhiteBox.java" Intrnl_Id="257">
+<LocList>
+<Loc EndOffset="738" SrcFileId="2" StartOffset="675"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="9" HierarchyLvlTypeId="7" Intrnl_Id="258" Name="testCalendWB6">
+<Header>
+<Loc EndOffset="780" SrcFileId="2" StartOffset="745"/>
+</Header>
+<LocList>
+<Loc EndOffset="854" SrcFileId="2" StartOffset="745"/>
+</LocList>
+<StmntSeq Intrnl_Id="259">
+<LocList>
+<Loc EndOffset="850" SrcFileId="2" StartOffset="786"/>
+</LocList>
+<BasicStmnt CovItemId="S6" CovItemPrefix="calendario.TestWhiteBox.java" Intrnl_Id="260">
+<LocList>
+<Loc EndOffset="850" SrcFileId="2" StartOffset="786"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="10" HierarchyLvlTypeId="7" Intrnl_Id="261" Name="testCalendWB7">
+<Header>
+<Loc EndOffset="892" SrcFileId="2" StartOffset="857"/>
+</Header>
+<LocList>
+<Loc EndOffset="968" SrcFileId="2" StartOffset="857"/>
+</LocList>
+<StmntSeq Intrnl_Id="262">
+<LocList>
+<Loc EndOffset="964" SrcFileId="2" StartOffset="898"/>
+</LocList>
+<BasicStmnt CovItemId="S7" CovItemPrefix="calendario.TestWhiteBox.java" Intrnl_Id="263">
+<LocList>
+<Loc EndOffset="964" SrcFileId="2" StartOffset="898"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="11" HierarchyLvlTypeId="7" Intrnl_Id="264" Name="testCalendWB8">
+<Header>
+<Loc EndOffset="1006" SrcFileId="2" StartOffset="971"/>
+</Header>
+<LocList>
+<Loc EndOffset="1081" SrcFileId="2" StartOffset="971"/>
+</LocList>
+<StmntSeq Intrnl_Id="265">
+<LocList>
+<Loc EndOffset="1077" SrcFileId="2" StartOffset="1012"/>
+</LocList>
+<BasicStmnt CovItemId="S8" CovItemPrefix="calendario.TestWhiteBox.java" Intrnl_Id="266">
+<LocList>
+<Loc EndOffset="1077" SrcFileId="2" StartOffset="1012"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="12" HierarchyLvlTypeId="7" Intrnl_Id="267" Name="testCalendWB9">
+<Header>
+<Loc EndOffset="1119" SrcFileId="2" StartOffset="1084"/>
+</Header>
+<LocList>
+<Loc EndOffset="1194" SrcFileId="2" StartOffset="1084"/>
+</LocList>
+<StmntSeq Intrnl_Id="268">
+<LocList>
+<Loc EndOffset="1190" SrcFileId="2" StartOffset="1125"/>
+</LocList>
+<BasicStmnt CovItemId="S9" CovItemPrefix="calendario.TestWhiteBox.java" Intrnl_Id="269">
+<LocList>
+<Loc EndOffset="1190" SrcFileId="2" StartOffset="1125"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</MASTRoot>
+</TestSessionContainer>
